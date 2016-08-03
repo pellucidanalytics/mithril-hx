@@ -1,5 +1,6 @@
 -cp example
--lib mithril
+#-lib mithril
+-cp src
 -lib jQueryExtern
 -js bin/webshop/webshop.js
 -main webshop.Webshop
