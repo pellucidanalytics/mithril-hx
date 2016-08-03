@@ -2,7 +2,7 @@ package mithril;
 
 import js.Browser;
 import js.html.Document;
-import js.html.DOMWindow;
+import js.html.Window;
 import js.html.Element;
 import js.Error;
 import js.html.Event;
@@ -79,9 +79,15 @@ typedef Deferred<T, T2> = {
 	function reject(value : T2) : Void;
 }
 
+// Addresses this compiler error:
+// Structures with new are deprecated, use haxe.Constraints.Constructible instead
+#if (haxe_ver >= "3.3")
+typedef DataConstructible<T> = haxe.Constraints.Constructible<T -> Void>;
+#else
 typedef DataConstructible<T> = {
 	public function new(data : T) : Void;
 }
+#end
 
 /**
  * Plenty of optional fields for this one:

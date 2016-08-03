@@ -47,7 +47,7 @@ class DashboardModule implements Module<Dynamic>
 		);
 	}
 
-	public function view() {
+	public function view(?ctrl : Null<Dynamic>) : ViewOutput {
 		[
 			m("h1", "Welcome!"),
 			m("p", "Choose your app:"),
